@@ -250,3 +250,78 @@ rkg_landfill_wd <- bind_rows(top_5, bottom_5, eu) %>%
   distinct()
 
 rkg_landfill_wd
+
+data <- filter(df_fw,metric=="kg_per_capita" & year=="2022")
+data <- data[ rowSums( is.na( data ) ) < 2 , ]
+
+#### Second PLOT Ranking of Food Waste Per Capita
+# Select Data 
+data <- data %>%
+  dplyr::select( country , households ) %>% arrange(desc(households))
+
+# Calculate total waste
+data <- mutate(data, country = fct_reorder(country, households))
+
+ranking <- filter(data, row_number() <= 5 | row_number() >= n() - 5 | country == "European Union" )
+ranking <- mutate(ranking, waste_ranking = as.factor( ifelse(row_number() <= 5, "top_5", ifelse(country == "European Union", "European_Union", ifelse(row_number() >= n() - 5, "last_5","")))))
+
+graph <- ggplot(ranking, aes(households, country))
+
+graph <- graph + 
+  geom_col(aes(x = households, y = country, fill = waste_ranking), width = 0.6) +
+  scale_fill_manual(name="Ranking of Food Waste per Country", 
+                    labels = c("Top 5 Countries", "European Union", "Last 5 Counties"), 
+                    values = c("top_5"="#C41E3A", "European_Union"="gray", "last_5"="#076fa2")) + 
+  scale_x_continuous(
+    limits = c(0, 130),
+    breaks = seq(0, 140, by = 10), 
+    expand = c(0, 0), # The horizontal axis does not extend to either side
+    position = "top"  # Labels are located on the top
+  ) +
+  scale_y_discrete(expand = expansion(add = c(0, 0.5))) +
+  theme(
+    panel.background = element_rect(fill = "white"),
+    panel.grid.major.x = element_line(color = "#A8BAC4", size = 0.3),
+    axis.ticks.length = unit(0, "mm"),
+    #axis.title = element_blank(),
+    axis.line.y.left = element_line(color = "black"),
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(family = "Econ Sans Cnd", size = 16),
+    plot.title = element_text(
+      family = "Econ Sans Cnd", 
+      face = "bold",
+      size = 22
+    ),
+    plot.subtitle = element_text(
+      family = "Econ Sans Cnd",
+      size = 20
+    ),
+    axis.title.x = element_text(size = 15, face = "bold"),
+    axis.title.y = element_text(size = 15, face = "italic")
+  ) +
+  geom_text(aes(label = households), hjust = 0, size = 7  , family = "Econ Sans Cnd") +
+  geom_text(
+    aes(0, y = country, label = country),
+    hjust = 0,
+    nudge_x = 0.3,
+    colour = "white",
+    family = "Econ Sans Cnd",
+    size = 7
+  ) +
+  labs(
+    title = "Food Waste Per Capita in EU",
+    subtitle = "Total in KG of Waste Food per Capita, 2022",
+    x = "Quantity of Food Waste per Capita (KG)",
+    y = "Country"
+  )
+graph
+
+p3 <- ggplot(mtcars, aes(cyl, mpg)) + geom_boxplot() + labs(title = "Plot 3")
+
+# Arrange plots with different widths
+layout <- (p3 + graph) / (p_rkg_recy + p_rkg_landfill) + plot_layout(widths = c(2, 1), heights = c(1, 1))
+layout
+# Display the combined plot
+layout
+combined_plot <- p_rkg_recy + p_rkg_landfill + plot_layout(ncol = 2)
+p_rkg_recy + p_rkg_landfill
