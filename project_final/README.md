@@ -2,11 +2,11 @@
 
 **Author**: 
            
-           André de Oliveira up202403079
+           André de Oliveira - up202403079
 
-            Daniel Gil Martinez
+            Daniel Gil Martinez - up202400081
             
-            Helena Alves
+            Helena Alves - up202403103
             
 **Repository**: [Food Waste Dataset Project](https://github.com/andrejms16/vpd_project/tree/main/project_final)  
 
@@ -14,7 +14,7 @@
 
 ## Overview  
 
-This project analyzes food waste trends in Europe using a comprehensive dataset that tracks per capita waste (in kilograms) across multiple sectors. The analysis spans three years (2020, 2021, 2022) and aims to identify patterns, trends, and insights to inform policy-making and waste reduction strategies.
+This project analyzes food waste trends in Europe using a comprehensive dataset that tracks per capita waste (in kilograms) across multiple sectors. The analysis spans 2022 and aims to identify patterns, trends, and insights to inform policy-making and waste reduction strategies.
 
 ### Key Focus Areas:  
 - **Categories of Food Waste**:  
@@ -27,7 +27,7 @@ This project analyzes food waste trends in Europe using a comprehensive dataset 
 
 - **Data Scope**:  
   - Geographical: European countries  
-  - Temporal: 2020, 2021, 2022  
+  - Temporal: 2022  
 
 ---
 
@@ -35,10 +35,8 @@ This project analyzes food waste trends in Europe using a comprehensive dataset 
 
 ```plaintext
 project_final/
-├── data/             # Raw and processed datasets
-├── scripts/          # R scripts for data cleaning, analysis, and visualization
-├── output/           # Results, charts, and other generated outputs
-├── docs/             # Documentation and resources
+├── main.R            # Main R file. Run this File.
+├── Requiriments.txt  # Project packages
 ├── README.md         # Project overview (this file)
 ```
 ## Getting Started  
@@ -47,12 +45,6 @@ project_final/
 Ensure you have the following installed:  
 - **R** (version ≥ 4.0.0)  
 - **RStudio** (optional, but recommended)  
-- Required R packages:  
-  - `tidyverse`  
-  - `readr`  
-  - `ggplot2`  
-  - `dplyr`  
-  - `shiny` (if applicable)  
 
 ### Installation  
 1. Clone the repository:  
