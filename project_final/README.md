@@ -1,8 +1,11 @@
 # Food Waste in Europe Analysis Project  
 
-**Author**: André de Oliveira, up202403079
-            Daniel Gil Martinez, 
+**Author**: André de Oliveira up202403079
+
+            Daniel Gil Martinez
+            
             Helena Alves
+            
 **Repository**: [Food Waste Dataset Project](https://github.com/andrejms16/vpd_project/tree/main/project_final)  
 
 ---
