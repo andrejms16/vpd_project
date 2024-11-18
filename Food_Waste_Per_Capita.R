@@ -12,6 +12,12 @@ library(dplyr)
 library(grid)
 library(shadowtext)
 library(gghighlight)
+library(ggflags)
+library(countrycode)
+#remotes::install_github('rensa/ggflags')
+
+x <- c("canada", "antarctica")
+countrycode("canada", origin = 'country.name', destination = 'iso3c')
 
 #### Select Data Set
 data = read_excel('./datasets/df_foodwaste.xlsx')
@@ -28,11 +34,13 @@ data <- mutate(data, country = fct_reorder(country, households))
 
 ranking <- filter(data, row_number() <= 5 | row_number() >= n() - 5 | country == "European Union" )
 ranking <- mutate(ranking, waste_ranking = as.factor( ifelse(row_number() <= 5, "top_5", ifelse(country == "European Union", "European_Union", ifelse(row_number() >= n() - 5, "last_5","")))))
+ranking <- mutate(ranking, countrycode = tolower(ifelse(country == "European Union","EU", countrycode(country, origin = 'country.name', destination = 'iso2c'))))
 
 graph <- ggplot(ranking, aes(households, country))
 
 graph <- graph + 
   geom_col(aes(x = households, y = country, fill = waste_ranking), width = 0.6) +
+  geom_flag(x = 18, aes(country = countrycode), size = 10) +
   scale_fill_manual(name="Ranking of Food Waste per Country", 
                     labels = c("Top 5 Countries", "European Union", "Last 5 Counties"), 
                     values = c("top_5"="#C41E3A", "European_Union"="gray", "last_5"="#076fa2")) + 
@@ -70,7 +78,8 @@ graph <- graph +
     nudge_x = 0.3,
     colour = "white",
     family = "Econ Sans Cnd",
-    size = 7
+    face = "bold",
+    size = 5
   ) +
   labs(
     title = "Food Waste Per Capita in EU",
