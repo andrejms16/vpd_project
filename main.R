@@ -4,6 +4,7 @@
   source("biomass_waste.R")
   source("source_food_waste.R")
   source("waffle_food_waste.R")
+  # source("recycling.R")
   
   
   custom_theme <- theme(
@@ -42,6 +43,8 @@
   # Draw plots
   waste_data <- read_excel("data/df_foodwaste.xlsx")
   disposal_data <- read_excel("data/df_waste_destination.xlsx")
+  # disposal_data_2 <- read_excel("data/df_waste_destination_2.xlsx")
+  
   plot1 <- food_waste_per_capita(waste_data, custom_theme)
   plot1
   plot3 <- treemap_by_country(disposal_data, custom_theme)
@@ -52,6 +55,8 @@
   plot4
   plot5 <- waffle_food_waste(waste_data, custom_theme)
   plot5
+  # plot6 <- recycling(disposal_data_2, custom_theme)
+  # plot6
   
   # Interfaz de usuario
 library(shiny)

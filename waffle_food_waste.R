@@ -121,6 +121,10 @@ waffle_food_waste <- function(data, custom_theme) {
       subtitle = "Total in Tonnes of Waste Food (MM), 2022."
     ) +
     custom_theme +  
+    theme(
+      axis.title.x = element_blank(),  # Elimina el título del eje X
+      axis.title.y = element_blank()   # Elimina el título del eje Y
+    ) +
     geom_text(
       data = data,
       aes(

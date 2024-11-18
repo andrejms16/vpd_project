@@ -91,7 +91,7 @@ treemap_by_country <- function(df, custom_theme) {
     ) +
     # geom_flag(aes(x = 0.5, y = 0.5, country = country_code), size = 8) +
     labs(title = "Proportion of Biomass Waste Disposal Methods",
-         subtitle = "By countries, values in tonnes",
+         subtitle = "By country, quantities in tonnes",
          fill = "Waste Disposal Methods") +
     theme_minimal() +
     custom_theme
@@ -185,7 +185,7 @@ treemap_by_type <- function(df, custom_theme) {
       )
     ) +
     labs(title = "Proportion of Biomass Waste Disposal Methods", 
-         subtitle = "By disposal method, values in tonnes",
+         subtitle = "By disposal method, quantities in tonnes",
          fill = "Waste Disposal Methods") +
     theme_minimal() +
     custom_theme
