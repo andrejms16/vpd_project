@@ -62,38 +62,38 @@ Ensure you have the following installed:
 
 2. Install the required R packages:
    ```bash
-   install.packages("ggplot2")
-install.packages("lubridate")
-install.packages("countrycode")
-install.packages("data.table")
-install.packages("dplyr")
-install.packages("geomtextpath")
-install.packages("ggalluvial")
-install.packages("ggflags")
-install.packages("gghighlight")
-install.packages("ggplot2")
-install.packages("ggtext")
-install.packages("grid")
-install.packages("magick")
-install.packages("networkD3")
-install.packages("patchwork")
-install.packages("plotly")
-install.packages("quantmod") 
-install.packages("readxl")
-install.packages("rmarkdown")
-install.packages("rnaturalearth")
-install.packages("rnaturalearthdata")
-install.packages("rsvg")
-install.packages("scales")
-install.packages("sf")
-install.packages("shadowtext")
-install.packages("shiny")
-install.packages("showtext")
-install.packages("tidyquant")
-install.packages("tidyverse")
-install.packages("treemapify")
-remotes::install_github("hrbrmstr/waffle")
-devtools::install_github("clauswilke/ggtextures")
+   install.packages("ggplot2");
+   install.packages("lubridate");
+   install.packages("countrycode");
+   install.packages("data.table");
+   install.packages("dplyr");
+   install.packages("geomtextpath");
+   install.packages("ggalluvial");
+   install.packages("ggflags");
+   install.packages("gghighlight");
+   install.packages("ggplot2");
+   install.packages("ggtext");
+   install.packages("grid");
+   install.packages("magick");
+   install.packages("networkD3");
+   install.packages("patchwork");
+   install.packages("plotly");
+   install.packages("quantmod"); 
+   install.packages("readxl");
+   install.packages("rmarkdown");
+   install.packages("rnaturalearth");
+   install.packages("rnaturalearthdata");
+   install.packages("rsvg");
+   install.packages("scales");
+   install.packages("sf");
+   install.packages("shadowtext");
+   install.packages("shiny");
+   install.packages("showtext");
+   install.packages("tidyquant");
+   install.packages("tidyverse");
+   install.packages("treemapify");
+   remotes::install_github("hrbrmstr/waffle");
+   devtools::install_github("clauswilke/ggtextures");
 
 3. Load the project in RStudio.
 
