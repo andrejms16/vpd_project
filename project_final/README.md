@@ -1,6 +1,8 @@
 # Food Waste in Europe Analysis Project  
 
-**Author**: André de Oliveira up202403079
+**Author**: 
+           
+           André de Oliveira up202403079
 
             Daniel Gil Martinez
             
