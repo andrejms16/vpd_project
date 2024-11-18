@@ -69,7 +69,11 @@ graph <- graph +
       size = 20
     ),
     axis.title.x = element_text(size = 15, face = "bold"),
-    axis.title.y = element_text(size = 15, face = "italic")
+    axis.title.y = element_text(size = 15, face = "italic"),
+    plot.caption =  element_text(
+      family = "Econ Sans Cnd",
+      size = 16
+    )
   ) +
   geom_text(aes(label = households), hjust = 0, size = 7  , family = "Econ Sans Cnd") +
   geom_text(
@@ -85,7 +89,8 @@ graph <- graph +
     title = "Food Waste Per Capita in EU",
     subtitle = "Total in KG of Waste Food per Capita, 2022",
     x = "Quantity of Food Waste per Capita (KG)",
-    y = "Country"
+    y = "Country",
+    caption = "Source: Eurostat"
   )
 
 graph
